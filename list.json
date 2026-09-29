@@ -1,0 +1,143 @@
+{
+  "title": "Awesome Agent Memory",
+  "subtitle": "Keep useful context between conversations.",
+  "description": "Persistent memory, recall, knowledge graphs, and context tools for AI agents.",
+  "scope": "Tools with an explicit agent-memory or persistent-context interface. General databases and document search engines are excluded unless the linked project supplies an agent-facing memory layer.",
+  "questions": [
+    "What is stored: messages, extracted facts, files, events, or graph relationships?",
+    "Can users inspect, correct, export, and delete the stored information?",
+    "Where is data stored, and what model or database services are required?"
+  ],
+  "sections": [
+    {
+      "title": "Memory services and frameworks",
+      "projects": [
+        {
+          "name": "Cognee",
+          "url": "https://github.com/topoteretes/cognee",
+          "description": "Memory platform that turns documents, code, and conversations into searchable knowledge graphs.",
+          "kind": "Memory platform",
+          "source": "https://github.com/topoteretes/cognee#readme",
+          "checked": "2026-09-29"
+        },
+        {
+          "name": "Hindsight",
+          "url": "https://github.com/vectorize-io/hindsight",
+          "description": "Agent-memory system with operations for retaining, recalling, and reflecting on information.",
+          "kind": "Memory server",
+          "source": "https://github.com/vectorize-io/hindsight#readme",
+          "checked": "2026-09-29"
+        },
+        {
+          "name": "LangMem",
+          "url": "https://github.com/langchain-ai/langmem",
+          "description": "Python tools for extracting memories from conversations and managing long-term agent context.",
+          "kind": "Library",
+          "source": "https://github.com/langchain-ai/langmem#readme",
+          "checked": "2026-09-29"
+        },
+        {
+          "name": "Mem0",
+          "url": "https://github.com/mem0ai/mem0",
+          "description": "Memory layer for retaining user and agent context across interactions.",
+          "kind": "SDK and managed service",
+          "source": "https://github.com/mem0ai/mem0#readme",
+          "checked": "2026-09-29"
+        },
+        {
+          "name": "Memobase",
+          "url": "https://github.com/memodb-io/memobase",
+          "description": "User-profile memory backend for organizing and retrieving context from conversations.",
+          "kind": "Memory backend",
+          "source": "https://github.com/memodb-io/memobase#readme",
+          "checked": "2026-09-29"
+        },
+        {
+          "name": "Redis Agent Memory",
+          "url": "https://github.com/redis/agent-memory-server",
+          "description": "Redis-backed memory service for recalling facts, events, and preferences across sessions.",
+          "kind": "Managed service",
+          "source": "https://github.com/redis/agent-memory-server#readme",
+          "checked": "2026-09-29"
+        },
+        {
+          "name": "Supermemory",
+          "url": "https://github.com/supermemoryai/supermemory",
+          "description": "Memory and context engine for retaining and retrieving information across AI interactions.",
+          "kind": "Memory platform",
+          "source": "https://github.com/supermemoryai/supermemory#readme",
+          "checked": "2026-09-29"
+        }
+      ]
+    },
+    {
+      "title": "Graph and file-based recall",
+      "projects": [
+        {
+          "name": "Basic Memory",
+          "url": "https://github.com/basicmachines-co/basic-memory",
+          "description": "MCP knowledge system that stores persistent context in local Markdown files.",
+          "kind": "MCP server",
+          "source": "https://github.com/basicmachines-co/basic-memory#readme",
+          "checked": "2026-09-29"
+        },
+        {
+          "name": "Graphiti",
+          "url": "https://github.com/getzep/graphiti",
+          "description": "Framework for building and querying temporal knowledge graphs for agent context.",
+          "kind": "Graph library",
+          "source": "https://github.com/getzep/graphiti#readme",
+          "checked": "2026-09-29"
+        },
+        {
+          "name": "Qdrant MCP Server",
+          "url": "https://github.com/qdrant/mcp-server-qdrant",
+          "description": "Official MCP server exposing a semantic memory layer backed by Qdrant.",
+          "kind": "MCP server",
+          "source": "https://github.com/qdrant/mcp-server-qdrant#readme",
+          "checked": "2026-09-29"
+        }
+      ]
+    },
+    {
+      "title": "Agent-integrated memory",
+      "projects": [
+        {
+          "name": "claude-mem",
+          "url": "https://github.com/thedotmack/claude-mem",
+          "description": "Captures agent-session activity and retrieves relevant context for later sessions.",
+          "kind": "Agent integration",
+          "source": "https://github.com/thedotmack/claude-mem#readme",
+          "checked": "2026-09-29"
+        },
+        {
+          "name": "Letta Code",
+          "url": "https://github.com/letta-ai/letta-code",
+          "description": "Stateful agent harness with persistent memory and an app server for connected interfaces.",
+          "kind": "Agent harness",
+          "source": "https://github.com/letta-ai/letta-code#readme",
+          "checked": "2026-09-29"
+        }
+      ]
+    }
+  ],
+  "related": [
+    {
+      "name": "Anandesh-Sharma/awesome-agentic-memory",
+      "url": "https://github.com/Anandesh-Sharma/awesome-agentic-memory",
+      "description": "Memory frameworks, research, and benchmarks."
+    },
+    {
+      "name": "TeleAI-UAGI/Awesome-Agent-Memory",
+      "url": "https://github.com/TeleAI-UAGI/Awesome-Agent-Memory",
+      "description": "Systems and papers about long-term agent memory."
+    },
+    {
+      "name": "Shichun-Liu/Agent-Memory-Paper-List",
+      "url": "https://github.com/Shichun-Liu/Agent-Memory-Paper-List",
+      "description": "Research companion to an agent-memory survey."
+    }
+  ],
+  "slug": "awesome-agent-memory",
+  "checked": "2026-09-29"
+}
