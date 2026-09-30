@@ -1,12 +1,15 @@
 {
   "title": "Awesome Agent Memory",
-  "subtitle": "Keep useful context between conversations.",
+  "subtitle": "Help your agent pick up where you left off.",
   "description": "Persistent memory, recall, knowledge graphs, and context tools for AI agents.",
   "scope": "Tools with an explicit agent-memory or persistent-context interface. General databases and document search engines are excluded unless the linked project supplies an agent-facing memory layer.",
   "questions": [
-    "What is stored: messages, extracted facts, files, events, or graph relationships?",
-    "Can users inspect, correct, export, and delete the stored information?",
-    "Where is data stored, and what model or database services are required?"
+    "Works with: Is there a documented integration for your agent, or will you need to build one using an SDK, API, or MCP server?",
+    "Runs where: Where are memories stored and processed? Can you operate the storage and retrieval service yourself?",
+    "Needs access to: Does it ingest selected notes, conversations, repository files, or every tool interaction? Can you control what is captured?",
+    "Keeps what: Does it preserve transcripts, facts, relationships, preferences, or procedures? Can you inspect, correct, export, and delete them?",
+    "Human involvement: Who decides what becomes a memory, when it is recalled, and when outdated information is removed?",
+    "Main limitation: How will you detect irrelevant recall, conflicting memories, or information leaking between projects and users?"
   ],
   "sections": [
     {
@@ -139,5 +142,6 @@
     }
   ],
   "slug": "awesome-agent-memory",
-  "checked": "2026-09-29"
+  "checked": "2026-09-29",
+  "introduction": "Start with what your agent keeps forgetting. Resuming a conversation, remembering project decisions, learning personal preferences, and sharing knowledge across a team are different jobs. Choose a memory tool for the information you need to preserve and the place you need to recall it."
 }

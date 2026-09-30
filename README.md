@@ -10,6 +10,10 @@
 
 12 projects · Upstream documentation checked 2026-09-29. Curated by [agentlist.io](https://www.agentlist.io).
 
+**Help your agent pick up where you left off.**
+
+Start with what your agent keeps forgetting. Resuming a conversation, remembering project decisions, learning personal preferences, and sharing knowledge across a team are different jobs. Choose a memory tool for the information you need to preserve and the place you need to recall it.
+
 Tools with an explicit agent-memory or persistent-context interface. General databases and document search engines are excluded unless the linked project supplies an agent-facing memory layer.
 
 ## Contents
@@ -24,9 +28,14 @@ Tools with an explicit agent-memory or persistent-context interface. General dat
 
 ## How to choose
 
-- What is stored: messages, extracted facts, files, events, or graph relationships?
-- Can users inspect, correct, export, and delete the stored information?
-- Where is data stored, and what model or database services are required?
+- Works with: Is there a documented integration for your agent, or will you need to build one using an SDK, API, or MCP server?
+- Runs where: Where are memories stored and processed? Can you operate the storage and retrieval service yourself?
+- Needs access to: Does it ingest selected notes, conversations, repository files, or every tool interaction? Can you control what is captured?
+- Keeps what: Does it preserve transcripts, facts, relationships, preferences, or procedures? Can you inspect, correct, export, and delete them?
+- Human involvement: Who decides what becomes a memory, when it is recalled, and when outdated information is removed?
+- Main limitation: How will you detect irrelevant recall, conflicting memories, or information leaking between projects and users?
+
+Use these questions to narrow your shortlist. An entry’s source link records the documentation used for its description; it does not mean every question above has been answered or tested. Treat undocumented capabilities as unknown, and confirm requirements against the linked project before adopting it.
 
 ## Memory services and frameworks
 
