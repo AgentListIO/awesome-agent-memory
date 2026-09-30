@@ -17,84 +17,204 @@
       "fit": "Memori's README quickstart is a hosted API key. Basic Memory stores Markdown you and the agent edit. MemPalace keeps a local index rather than those notes.",
       "distinction": "Memori persists through its API unless you use the separate BYODB connection, which can be a SQLite file. Basic Memory's notes are Markdown on disk, with optional hosted sync of the same files.",
       "unknown": "Unknown whether Memori Cloud memories export as files you open beside a repo. The BYODB page shows SQLite, not a Markdown tree.",
-      "source": "https://github.com/basicmachines-co/basic-memory"
+      "sources": [
+        {
+          "name": "Memori",
+          "url": "https://github.com/MemoriLabs/Memori#readme"
+        },
+        {
+          "name": "Basic Memory",
+          "url": "https://github.com/basicmachines-co/basic-memory#readme"
+        },
+        {
+          "name": "MemPalace",
+          "url": "https://github.com/MemPalace/mempalace#readme"
+        },
+        {
+          "name": "Memori BYODB",
+          "url": "https://memorilabs.ai/docs/memori-byodb/"
+        }
+      ]
     },
     {
       "need": "A graph engine you run, or a hosted context-graph product?",
       "fit": "Graphiti is the library you run against your own graph database. Zep is the hosted context service and documents a VPC deployment.",
       "distinction": "You bring Neo4j, FalkorDB, Neptune, or deprecated Kuzu for Graphiti, and Zep is the managed product on a proprietary engine. Zep's homepage offers managed cloud, your own keys, or your VPC.",
       "unknown": "Unknown how much of a Zep graph is the Graphiti library versus the proprietary engine named on Graphiti's README.",
-      "source": "https://github.com/getzep/graphiti"
+      "sources": [
+        {
+          "name": "Graphiti",
+          "url": "https://github.com/getzep/graphiti#readme"
+        },
+        {
+          "name": "Zep",
+          "url": "https://www.getzep.com/"
+        }
+      ]
     },
     {
       "need": "A coding-agent harness, or a general memory service?",
       "fit": "Letta Code is the agent harness. Memori is a memory SDK and hosted API that plugins and an MCP endpoint call.",
       "distinction": "Letta Code agents rewrite their own memory blocks and can use Letta Cloud or a local backend. Memori wraps an LLM client and stores memories for the entity and process you attribute.",
       "unknown": "Unknown whether a Letta Code agent can use Memori as its store. The pages describe separate products.",
-      "source": "https://github.com/letta-ai/letta-code"
+      "sources": [
+        {
+          "name": "Letta Code",
+          "url": "https://github.com/letta-ai/letta-code#readme"
+        },
+        {
+          "name": "Memori",
+          "url": "https://github.com/MemoriLabs/Memori#readme"
+        }
+      ]
     },
     {
       "need": "A vector search adapter, or a memory store with its own record?",
       "fit": "Qdrant MCP Server stores and finds text in Qdrant. Memobase turns chat blobs into a profile and an event timeline.",
       "distinction": "The Qdrant server exposes qdrant-store and qdrant-find and does not document a profile or a review step. Memobase flushes blobs into profile and event records and removes processed blobs unless storage config keeps them.",
       "unknown": "Unknown whether Qdrant MCP Server can delete or export a memory. The README shows store and find, and read-only mode only disables store.",
-      "source": "https://github.com/qdrant/mcp-server-qdrant"
+      "sources": [
+        {
+          "name": "Qdrant MCP Server",
+          "url": "https://github.com/qdrant/mcp-server-qdrant#readme"
+        },
+        {
+          "name": "Memobase",
+          "url": "https://github.com/memodb-io/memobase#readme"
+        }
+      ]
     },
     {
       "need": "Who decides what is written into memory?",
       "fit": "Memori writes from attributed LLM calls in the background. Letta Code agents rewrite their own memory. Memobase extracts a profile from blobs you insert.",
       "distinction": "Without attribution Memori cannot make memories, and conversations persist automatically. Memobase builds the profile on flush. Letta Code agents rewrite memory blocks themselves.",
       "unknown": "Unknown whether Memori or Memobase show a person a proposed write before it lands. Neither README documents an approval queue.",
-      "source": "https://github.com/MemoriLabs/Memori"
+      "sources": [
+        {
+          "name": "Memori",
+          "url": "https://github.com/MemoriLabs/Memori#readme"
+        },
+        {
+          "name": "Letta Code",
+          "url": "https://github.com/letta-ai/letta-code#readme"
+        },
+        {
+          "name": "Memobase",
+          "url": "https://github.com/memodb-io/memobase#readme"
+        }
+      ]
     },
     {
       "need": "Can you export or delete what was stored?",
       "fit": "Letta Code keeps memory import and export and transcript export. Motorhead deletes a session. Memobase can delete a user or a blob.",
       "distinction": "Letta Code removed AgentFile export and import, while memory import and export and conversation transcript export remain. Motorhead's delete route removes a session's messages. Memobase removes processed blobs unless config keeps them.",
-      "unknown": "Unknown the file format of Letta Code memory import and export. The README names the operations and does not show a schema.",
-      "source": "https://github.com/letta-ai/letta-code"
+      "unknown": "Unknown the file format of Letta Code memory import and export. Its README names the operations and does not show a schema.",
+      "sources": [
+        {
+          "name": "Letta Code",
+          "url": "https://github.com/letta-ai/letta-code#readme"
+        },
+        {
+          "name": "Motorhead",
+          "url": "https://github.com/getmetal/motorhead#readme"
+        },
+        {
+          "name": "Memobase",
+          "url": "https://github.com/memodb-io/memobase#readme"
+        }
+      ]
     },
     {
       "need": "Is Motorhead still a supported memory server?",
       "fit": "Motorhead is the deprecated session server. Mem0 and Memori are separate entries in this list and are not described as deprecated.",
       "distinction": "Motorhead still documents get, post, and delete for a session window, incremental summarization, and optional Redisearch that defaults off. Support is no longer maintained, so those routes are not a support commitment.",
       "unknown": "Unknown whether the published image still runs. The README keeps the commands and does not name a successor.",
-      "source": "https://github.com/getmetal/motorhead"
+      "sources": [
+        {
+          "name": "Motorhead",
+          "url": "https://github.com/getmetal/motorhead#readme"
+        },
+        {
+          "name": "Mem0",
+          "url": "https://github.com/mem0ai/mem0#readme"
+        },
+        {
+          "name": "Memori",
+          "url": "https://github.com/MemoriLabs/Memori#readme"
+        }
+      ]
     },
     {
       "need": "Where does Memori store memories?",
       "fit": "Memori's quickstart uses a hosted API key. Its BYODB docs also show SQLite and other databases you connect.",
       "distinction": "The README quickstart sets MEMORI_API_KEY from app.memorilabs.ai and does not open a local file. The BYODB example connects sqlite3 to memori.db and also lists Postgres, MySQL, and other engines.",
       "unknown": "Unknown whether the hosted quickstart also writes a local file. The README mentions VPC only in a customer case study, not as setup steps.",
-      "source": "https://memorilabs.ai/docs/memori-byodb/"
+      "sources": [
+        {
+          "name": "Memori",
+          "url": "https://github.com/MemoriLabs/Memori#readme"
+        },
+        {
+          "name": "Memori BYODB",
+          "url": "https://memorilabs.ai/docs/memori-byodb/"
+        }
+      ]
     },
     {
       "need": "Does TeleMem's quickstart stay on a local model and index?",
       "fit": "TeleMem's slogan says local Qwen and FAISS. The quickstart uses an OpenAI key and Mem0 provider defaults.",
       "distinction": "The slogan is fully local by default on Qwen and FAISS, but the printed quickstart exports OPENAI_API_KEY and calls Memory(). Local Qwen endpoints and a FAISS path are config/config.yaml, loaded only if you pass that file.",
       "unknown": "Unknown which store Memory() uses when no config is passed. The FAISS directory in the storage section is not what that quickstart selects.",
-      "source": "https://github.com/TeleAI-UAGI/telemem"
+      "sources": [
+        {
+          "name": "TeleMem",
+          "url": "https://github.com/TeleAI-UAGI/telemem#readme"
+        },
+        {
+          "name": "Mem0",
+          "url": "https://github.com/mem0ai/mem0#readme"
+        }
+      ]
     },
     {
       "need": "Does Letta Code store memory in Letta Cloud or locally?",
       "fit": "Letta Code defaults to Letta Cloud and also documents a local backend. The older letta-ai/letta repository points at this harness and is not a second store.",
       "distinction": "Letta Cloud is the default and stores memory, identity, and conversations. First launch can proceed locally, and letta backend local or --backend local selects the local backend.",
       "unknown": "Unknown where the local backend writes its files. The README names the local backend and does not give a path.",
-      "source": "https://github.com/letta-ai/letta-code"
+      "sources": [
+        {
+          "name": "Letta Code",
+          "url": "https://github.com/letta-ai/letta-code#readme"
+        },
+        {
+          "name": "letta-ai/letta",
+          "url": "https://github.com/letta-ai/letta"
+        }
+      ]
     },
     {
       "need": "Which MemPalace websites are official?",
       "fit": "MemPalace limits official sources to its GitHub repository, the PyPI package, and mempalaceofficial.com.",
       "distinction": "There are no other official websites, and other domains, including .tech, .net, or other .com names, may be impostors. Nothing leaves the machine unless you opt in.",
       "unknown": "Unknown whether every page on mempalaceofficial.com matches this repository. No license is stated from these pages.",
-      "source": "https://github.com/MemPalace/mempalace"
+      "sources": [
+        {
+          "name": "MemPalace",
+          "url": "https://github.com/MemPalace/mempalace#readme"
+        }
+      ]
     },
     {
       "need": "Does Memobase keep the original chat after processing?",
       "fit": "Memobase removes processed blobs unless storage config keeps them. The profile and event timeline are the durable record.",
       "distinction": "Blobs are removed once processed, so data other than the relevant memory is not stored, unless you change the storage config. The quickstart also shows deleting a user.",
-      "unknown": "Cited page covers this default removal. Unknown how long kept blobs stay, and whether the profile has an export format besides the API.",
-      "source": "https://github.com/memodb-io/memobase"
+      "unknown": "Unknown how long kept blobs stay, and whether the profile has an export format besides the API.",
+      "sources": [
+        {
+          "name": "Memobase",
+          "url": "https://github.com/memodb-io/memobase#readme"
+        }
+      ]
     }
   ],
   "sections": [
