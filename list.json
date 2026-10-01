@@ -11,6 +11,212 @@
     "Human involvement: Who decides what becomes a memory, when it is recalled, and when outdated information is removed?",
     "Main limitation: How will you detect irrelevant recall, conflicting memories, or information leaking between projects and users?"
   ],
+  "decisions": [
+    {
+      "need": "Hosted memory API, or files you can open in a repo?",
+      "fit": "Memori's README quickstart is a hosted API key. Basic Memory stores Markdown you and the agent edit. MemPalace keeps a local index rather than those notes.",
+      "distinction": "Memori persists through its API unless you use the separate BYODB connection, which can be a SQLite file. Basic Memory's notes are Markdown on disk, with optional hosted sync of the same files.",
+      "unknown": "Unknown whether Memori Cloud memories export as files you open beside a repo. The BYODB page shows SQLite, not a Markdown tree.",
+      "sources": [
+        {
+          "name": "Memori",
+          "url": "https://github.com/MemoriLabs/Memori#readme"
+        },
+        {
+          "name": "Basic Memory",
+          "url": "https://github.com/basicmachines-co/basic-memory#readme"
+        },
+        {
+          "name": "MemPalace",
+          "url": "https://github.com/MemPalace/mempalace#readme"
+        },
+        {
+          "name": "Memori BYODB",
+          "url": "https://memorilabs.ai/docs/memori-byodb/"
+        }
+      ]
+    },
+    {
+      "need": "A graph engine you run, or a hosted context-graph product?",
+      "fit": "Graphiti is the library you run against your own graph database. Zep is the hosted context service and documents a VPC deployment.",
+      "distinction": "You bring Neo4j, FalkorDB, Neptune, or deprecated Kuzu for Graphiti, and Zep is the managed product on a proprietary engine. Zep's homepage offers managed cloud, your own keys, or your VPC.",
+      "unknown": "Unknown how much of a Zep graph is the Graphiti library versus the proprietary engine named on Graphiti's README.",
+      "sources": [
+        {
+          "name": "Graphiti",
+          "url": "https://github.com/getzep/graphiti#readme"
+        },
+        {
+          "name": "Zep",
+          "url": "https://www.getzep.com/"
+        }
+      ]
+    },
+    {
+      "need": "A coding-agent harness, or a general memory service?",
+      "fit": "Letta Code is the agent harness. Memori is a memory SDK and hosted API that plugins and an MCP endpoint call.",
+      "distinction": "Letta Code agents rewrite their own memory blocks and can use Letta Cloud or a local backend. Memori wraps an LLM client and stores memories for the entity and process you attribute.",
+      "unknown": "Unknown whether a Letta Code agent can use Memori as its store. The pages describe separate products.",
+      "sources": [
+        {
+          "name": "Letta Code",
+          "url": "https://github.com/letta-ai/letta-code#readme"
+        },
+        {
+          "name": "Memori",
+          "url": "https://github.com/MemoriLabs/Memori#readme"
+        }
+      ]
+    },
+    {
+      "need": "A vector search adapter, or a memory store with its own record?",
+      "fit": "Qdrant MCP Server stores and finds text in Qdrant. Memobase turns chat blobs into a profile and an event timeline.",
+      "distinction": "The Qdrant server exposes qdrant-store and qdrant-find and does not document a profile or a review step. Memobase flushes blobs into profile and event records and removes processed blobs unless storage config keeps them.",
+      "unknown": "Unknown whether Qdrant MCP Server can delete or export a memory. The README shows store and find, and read-only mode only disables store.",
+      "sources": [
+        {
+          "name": "Qdrant MCP Server",
+          "url": "https://github.com/qdrant/mcp-server-qdrant#readme"
+        },
+        {
+          "name": "Memobase",
+          "url": "https://github.com/memodb-io/memobase#readme"
+        }
+      ]
+    },
+    {
+      "need": "Who decides what is written into memory?",
+      "fit": "Memori writes from attributed LLM calls in the background. Letta Code agents rewrite their own memory. Memobase extracts a profile from blobs you insert.",
+      "distinction": "Without attribution Memori cannot make memories, and conversations persist automatically. Memobase builds the profile on flush. Letta Code agents rewrite memory blocks themselves.",
+      "unknown": "Unknown whether Memori or Memobase show a person a proposed write before it lands. Neither README documents an approval queue.",
+      "sources": [
+        {
+          "name": "Memori",
+          "url": "https://github.com/MemoriLabs/Memori#readme"
+        },
+        {
+          "name": "Letta Code",
+          "url": "https://github.com/letta-ai/letta-code#readme"
+        },
+        {
+          "name": "Memobase",
+          "url": "https://github.com/memodb-io/memobase#readme"
+        }
+      ]
+    },
+    {
+      "need": "Can you export or delete what was stored?",
+      "fit": "Letta Code keeps memory import and export and transcript export. Motorhead deletes a session. Memobase can delete a user or a blob.",
+      "distinction": "Letta Code removed AgentFile export and import, while memory import and export and conversation transcript export remain. Motorhead's delete route removes a session's messages. Memobase removes processed blobs unless config keeps them.",
+      "unknown": "Unknown the file format of Letta Code memory import and export. Its README names the operations and does not show a schema.",
+      "sources": [
+        {
+          "name": "Letta Code",
+          "url": "https://github.com/letta-ai/letta-code#readme"
+        },
+        {
+          "name": "Motorhead",
+          "url": "https://github.com/getmetal/motorhead#readme"
+        },
+        {
+          "name": "Memobase",
+          "url": "https://github.com/memodb-io/memobase#readme"
+        }
+      ]
+    },
+    {
+      "need": "Is Motorhead still a supported memory server?",
+      "fit": "Motorhead is the deprecated session server. Mem0 and Memori are separate entries in this list and are not described as deprecated.",
+      "distinction": "Motorhead still documents get, post, and delete for a session window, incremental summarization, and optional Redisearch that defaults off. Support is no longer maintained, so those routes are not a support commitment.",
+      "unknown": "Unknown whether the published image still runs. The README keeps the commands and does not name a successor.",
+      "sources": [
+        {
+          "name": "Motorhead",
+          "url": "https://github.com/getmetal/motorhead#readme"
+        },
+        {
+          "name": "Mem0",
+          "url": "https://github.com/mem0ai/mem0#readme"
+        },
+        {
+          "name": "Memori",
+          "url": "https://github.com/MemoriLabs/Memori#readme"
+        }
+      ]
+    },
+    {
+      "need": "Where does Memori store memories?",
+      "fit": "Memori's quickstart uses a hosted API key. Its BYODB docs also show SQLite and other databases you connect.",
+      "distinction": "The README quickstart sets MEMORI_API_KEY from app.memorilabs.ai and does not open a local file. The BYODB example connects sqlite3 to memori.db and also lists Postgres, MySQL, and other engines.",
+      "unknown": "Unknown whether the hosted quickstart also writes a local file. The README mentions VPC only in a customer case study, not as setup steps.",
+      "sources": [
+        {
+          "name": "Memori",
+          "url": "https://github.com/MemoriLabs/Memori#readme"
+        },
+        {
+          "name": "Memori BYODB",
+          "url": "https://memorilabs.ai/docs/memori-byodb/"
+        }
+      ]
+    },
+    {
+      "need": "Does TeleMem's quickstart stay on a local model and index?",
+      "fit": "TeleMem's slogan says local Qwen and FAISS. The quickstart uses an OpenAI key and Mem0 provider defaults.",
+      "distinction": "The slogan is fully local by default on Qwen and FAISS, but the printed quickstart exports OPENAI_API_KEY and calls Memory(). Local Qwen endpoints and a FAISS path are config/config.yaml, loaded only if you pass that file.",
+      "unknown": "Unknown which store Memory() uses when no config is passed. The FAISS directory in the storage section is not what that quickstart selects.",
+      "sources": [
+        {
+          "name": "TeleMem",
+          "url": "https://github.com/TeleAI-UAGI/telemem#readme"
+        },
+        {
+          "name": "Mem0",
+          "url": "https://github.com/mem0ai/mem0#readme"
+        }
+      ]
+    },
+    {
+      "need": "Does Letta Code store memory in Letta Cloud or locally?",
+      "fit": "Letta Code defaults to Letta Cloud and also documents a local backend. The older letta-ai/letta repository points at this harness and is not a second store.",
+      "distinction": "Letta Cloud is the default and stores memory, identity, and conversations. First launch can proceed locally, and letta backend local or --backend local selects the local backend.",
+      "unknown": "Unknown where the local backend writes its files. The README names the local backend and does not give a path.",
+      "sources": [
+        {
+          "name": "Letta Code",
+          "url": "https://github.com/letta-ai/letta-code#readme"
+        },
+        {
+          "name": "letta-ai/letta",
+          "url": "https://github.com/letta-ai/letta"
+        }
+      ]
+    },
+    {
+      "need": "Which MemPalace websites are official?",
+      "fit": "MemPalace limits official sources to its GitHub repository, the PyPI package, and mempalaceofficial.com.",
+      "distinction": "There are no other official websites, and other domains, including .tech, .net, or other .com names, may be impostors. Nothing leaves the machine unless you opt in.",
+      "unknown": "Unknown whether every page on mempalaceofficial.com matches this repository. No license is stated from these pages.",
+      "sources": [
+        {
+          "name": "MemPalace",
+          "url": "https://github.com/MemPalace/mempalace#readme"
+        }
+      ]
+    },
+    {
+      "need": "Does Memobase keep the original chat after processing?",
+      "fit": "Memobase removes processed blobs unless storage config keeps them. The profile and event timeline are the durable record.",
+      "distinction": "Blobs are removed once processed, so data other than the relevant memory is not stored, unless you change the storage config. The quickstart also shows deleting a user.",
+      "unknown": "Unknown how long kept blobs stay, and whether the profile has an export format besides the API.",
+      "sources": [
+        {
+          "name": "Memobase",
+          "url": "https://github.com/memodb-io/memobase#readme"
+        }
+      ]
+    }
+  ],
   "sections": [
     {
       "title": "Memory services and frameworks",
@@ -18,87 +224,239 @@
         {
           "name": "Cognee",
           "url": "https://github.com/topoteretes/cognee",
-          "description": "Memory platform that turns documents, code, and conversations into searchable knowledge graphs.",
-          "kind": "Memory platform",
+          "description": "Python library that turns documents, conversations, and code into a knowledge graph with dataset-scoped remember, recall, improve, and forget. Local extraction and embedding use small models when no LLM key is set. Claude Code and Codex plugins, MCP, and Cognee Cloud are documented. Forget removes an item or a dataset, and no export format is described apart from that graph.",
+          "kind": "Python library",
           "source": "https://github.com/topoteretes/cognee#readme",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         },
         {
           "name": "Hindsight",
           "url": "https://github.com/vectorize-io/hindsight",
-          "description": "Agent-memory system with operations for retaining, recalling, and reflecting on information.",
+          "description": "Memory server whose clients call retain, recall, and reflect on world facts, experiences, observations, and mental models. You run Docker with embedded Postgres or an external database, or use Hindsight Cloud. Python, TypeScript, an LLM wrapper, and a per-bank MCP endpoint are documented. Retain uses an LLM to extract facts, with no human approval before that write.",
           "kind": "Memory server",
           "source": "https://github.com/vectorize-io/hindsight#readme",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         },
         {
           "name": "LangMem",
           "url": "https://github.com/langchain-ai/langmem",
-          "description": "Python tools for extracting memories from conversations and managing long-term agent context.",
-          "kind": "Library",
+          "description": "Python tools an agent calls to save and search long-term memory, plus a background manager that extracts and consolidates onto a LangGraph store. The in-process store disappears on restart. A database-backed store such as AsyncPostgresStore keeps memories. On the hot path the agent decides what to record. You supply the LLM key, and LangMem is not a hosted service.",
+          "kind": "Python library",
           "source": "https://github.com/langchain-ai/langmem#readme",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         },
         {
           "name": "Mem0",
           "url": "https://github.com/mem0ai/mem0",
-          "description": "Memory layer for retaining user and agent context across interactions.",
+          "description": "Memory layer as a Python library, a self-hosted server, and a managed platform, with add and search scoped by user, session, or agent. Newer extraction keeps agent-confirmed facts and does not overwrite or delete during extraction, so memories accumulate until something else removes them. Self-hosted auth is on by default. Skills teach integration rather than replacing the SDK or API.",
           "kind": "SDK and managed service",
           "source": "https://github.com/mem0ai/mem0#readme",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         },
         {
           "name": "Memobase",
           "url": "https://github.com/memodb-io/memobase",
-          "description": "User-profile memory backend for organizing and retrieving context from conversations.",
+          "description": "User-profile backend that buffers chat blobs and flushes them into a structured profile and an event timeline. Processed blobs are removed unless storage config keeps them, so the durable record is the profile and events rather than the original transcript. The license is Apache-2.0. MCP clients use Memobase-MCP under src/mcp. The quickstart also shows deleting a user.",
           "kind": "Memory backend",
           "source": "https://github.com/memodb-io/memobase#readme",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         },
         {
           "name": "Redis Agent Memory",
           "url": "https://github.com/redis/agent-memory-server",
-          "description": "Redis-backed memory service for recalling facts, events, and preferences across sessions.",
-          "kind": "Managed service",
+          "description": "Managed memory layer on Redis Cloud, called through a Python SDK, a TypeScript SDK, or REST. Session memory holds the live conversation with a configurable TTL, and a background job promotes extracted facts into long-term text and vector embeddings. The V0 tree is earlier open-source research, not the supported service. No person is documented reviewing each promoted fact.",
+          "kind": "Managed memory service",
           "source": "https://github.com/redis/agent-memory-server#readme",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         },
         {
           "name": "Supermemory",
           "url": "https://github.com/supermemoryai/supermemory",
-          "description": "Memory and context engine for retaining and retrieving information across AI interactions.",
+          "description": "Memory API that extracts facts and user profiles from conversations and searches them with uploaded documents. Plugins and a hosted MCP server cover Claude Code, Muse Code, Cursor, Codex, OpenCode, OpenClaw, and Hermes. A local binary serves the same API, and Ollama can stay offline. Container tags separate projects. Extraction is also automatic, and no review queue is documented.",
           "kind": "Memory platform",
           "source": "https://github.com/supermemoryai/supermemory#readme",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "Memori",
+          "url": "https://github.com/MemoriLabs/Memori",
+          "description": "Python and TypeScript wrapper that registers an LLM client, attributes each call to an entity and a process, and persists and recalls in the background. The quickstart is a hosted MEMORI_API_KEY from app.memorilabs.ai. Without attribution it cannot make memories. BYODB is separate, including a database you connect and a local SQLite file. Plugins and an HTTP MCP endpoint are documented.",
+          "kind": "Memory SDK",
+          "source": "https://github.com/MemoriLabs/Memori#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "memU",
+          "url": "https://github.com/NevaMind-AI/memU",
+          "description": "Personal memory stored as Markdown skills. A per-agent sidecar slices session logs and asks that agent to distill them. MemoryService only stores, embeds, and retrieves that Markdown, and calls no LLM. It uses a hosted API key or a self-hosted store. ChatGPT chat mode and Claude chat and Cowork are excluded. Uninstall keeps the store unless you explicitly erase it.",
+          "kind": "Memory sidecar",
+          "source": "https://github.com/NevaMind-AI/memU#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "EverOS",
+          "url": "https://github.com/EverMind-AI/EverOS",
+          "description": "Local-first Python runtime that writes conversations, files, and agent trajectories to Markdown and indexes them with SQLite and LanceDB. A local HTTP API adds, flushes, and searches memories. Plugins cover DeepSeek Harness, Hermes, OpenClaw, and Dify, and EverOS is built into Raven. The demo can run without a key, but init expects an OpenRouter key. Flush makes a fact durable.",
+          "kind": "Local memory runtime",
+          "source": "https://github.com/EverMind-AI/EverOS#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "MemOS",
+          "url": "https://github.com/MemTensor/MemOS",
+          "description": "Memory service with one API to add, search, edit, and delete an inspectable graph of text, images, and tool traces. Memory cubes separate users, projects, and agents, and natural-language feedback can correct an entry. You can call a cloud API or run the service with Docker. Local plugins cover OpenClaw, Hermes, and DeepSeek Harness, with a cloud plugin also documented.",
+          "kind": "Memory service",
+          "source": "https://github.com/MemTensor/MemOS#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "Honcho",
+          "url": "https://github.com/plastic-labs/honcho",
+          "description": "Service that stores messages and events, updates peer representations, and returns search or a natural-language answer. Use a managed API, a local honcho start stack, or a self-hosted FastAPI server, with Python and TypeScript clients. Plugins and MCP cover Claude Code, Codex, OpenCode, and Hermes. You choose which messages to store. No approval precedes a background change to a peer.",
+          "kind": "Memory service",
+          "source": "https://github.com/plastic-labs/honcho#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "ReMe",
+          "url": "https://github.com/agentscope-ai/ReMe",
+          "description": "Memory kit that keeps durable memory as Markdown with frontmatter and wikilinks, so people and agents edit the same files. A local service is reachable by CLI, HTTP, MCP, or in-process Python API for QwenPaw, DeepSeek Harness, Hermes, and OpenClaw. BM25 search works without embeddings, but automatic memory jobs require them. The files are what you move or back up.",
+          "kind": "Markdown memory kit",
+          "source": "https://github.com/agentscope-ai/ReMe#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "MemMachine",
+          "url": "https://github.com/MemMachine/MemMachine",
+          "description": "Memory server that splits episodic conversation into a graph database, long-term user facts into SQL, and the current session into working memory. Python, REST, TypeScript, and MCP talk to a server you run or the hosted platform. Integrations include LangChain, LangGraph, CrewAI, LlamaIndex, and Dify. The caller sets user, agent, and session ids. No human review is documented before add.",
+          "kind": "Memory server",
+          "source": "https://github.com/MemMachine/MemMachine#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "Caura",
+          "url": "https://github.com/caura-ai/caura",
+          "description": "Governed memory service, formerly MemClaw, where agents write text and the server stores and searches it for one agent or a fleet. REST and MCP are documented. A Docker stack bypasses auth for a local trial, and shared deployments use agent-scoped credentials. Trust tiers and visibility scopes limit cross-agent reads, writes, and deletes. No separate file export is documented.",
+          "kind": "Memory service",
+          "source": "https://github.com/caura-ai/caura#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "TencentDB Agent Memory",
+          "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+          "description": "Self-hosted hub for conversations, documents, and code: chat memory, skills, a wiki, and a code graph, served through a proxy used as the model base URL. The proxy needs no plugin and covers Claude Code, CodeBuddy, and DeepSeek Harness. People review and equip assets in Memory Hub. Personal skills stay private until shared. Skill export is later work, not current.",
+          "kind": "Team memory hub",
+          "source": "https://github.com/TencentCloud/TencentDB-Agent-Memory#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "OpenViking",
+          "url": "https://github.com/volcengine/OpenViking",
+          "description": "Open-source context database, not only a memory store. Documents, code, user memories, and skills live on one viking:// filesystem an agent can list and read. Committing a session archives the conversation and writes extracted memories as Markdown you can edit. Integrations, MCP, a macOS and Windows console, and optional ACLs are documented. Configure authentication before exposing the server beyond localhost.",
+          "kind": "Context database",
+          "source": "https://github.com/volcengine/OpenViking#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "LongMemory",
+          "url": "https://github.com/CaviraOSS/LongMemory",
+          "description": "Local TypeScript engine for ingest and recall, exposed as a library, CLI, HTTP service, MCP server, and dashboard, with SQLite as the durable file. The Python package is only an HTTP client for that server, not a second engine. Strict and associative recall are documented, and stored content is treated as immutable. In-memory mode needs no database and ends when the process closes.",
+          "kind": "TypeScript library",
+          "source": "https://github.com/CaviraOSS/LongMemory#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "Memorix",
+          "url": "https://github.com/AVIDS2/memorix",
+          "description": "Local memory for coding agents, kept in SQLite under the Git project and opened through MCP, hooks, CLI, and SDK. Setup covers Claude Code, Codex, Cursor, and other MCP agents. Hooks capture only where that agent exposes the events. Knowledge pages are review-gated, so a proposal does not replace a reviewed page. Optional sync still treats local SQLite as canonical.",
+          "kind": "Local memory service",
+          "source": "https://github.com/AVIDS2/memorix#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "TeleMem",
+          "url": "https://github.com/TeleAI-UAGI/telemem",
+          "description": "Python memory layer with a Mem0-compatible add and search API and a separate profile per character. The slogan is fully local Qwen and FAISS, but Memory() follows Mem0 provider defaults unless you pass the config file. The quickstart sets an OpenAI API key. Local Qwen and FAISS load only if you pass that file. An MCP server exposes the tools.",
+          "kind": "Python library",
+          "source": "https://github.com/TeleAI-UAGI/telemem#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "Zep",
+          "url": "https://www.getzep.com/",
+          "description": "Hosted context service that builds graphs from business data, documents, and conversations and returns a slice for a task. The site documents a managed cloud, a cloud option with customer-managed keys, and a VPC deployment. Graphiti is the open-source graph library and is listed separately. The getzep/zep GitHub repository is examples, not this service.",
+          "kind": "Hosted memory service",
+          "source": "https://www.getzep.com/",
+          "checked": "2026-09-30"
         }
       ]
     },
     {
-      "title": "Graph and file-based recall",
+      "title": "Graph, file, and local recall",
       "projects": [
         {
           "name": "Basic Memory",
           "url": "https://github.com/basicmachines-co/basic-memory",
-          "description": "MCP knowledge system that stores persistent context in local Markdown files.",
+          "description": "MCP server that stores a knowledge base as Markdown on disk, with observations and wikilinks a person and the agent can both edit. It installs locally for Claude, Codex, Cursor, ChatGPT, and other MCP clients, with optional hosted sync of the same files. Search can be keyword or semantic. Cloud notes stay Markdown and export back to local files.",
           "kind": "MCP server",
           "source": "https://github.com/basicmachines-co/basic-memory#readme",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         },
         {
           "name": "Graphiti",
           "url": "https://github.com/getzep/graphiti",
-          "description": "Framework for building and querying temporal knowledge graphs for agent context.",
+          "description": "Python framework for a temporal knowledge graph of entities, facts with validity windows, and episodes that keep the raw ingested text. You run it and bring your own graph database; an included MCP server is documented with Neo4j, retrieval mixes embeddings, keywords, and graph traversal, and custom types use Pydantic models. Zep's hosted context service is listed separately and is not operated by this library.",
           "kind": "Graph library",
           "source": "https://github.com/getzep/graphiti#readme",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         },
         {
-          "name": "Qdrant MCP Server",
-          "url": "https://github.com/qdrant/mcp-server-qdrant",
-          "description": "Official MCP server exposing a semantic memory layer backed by Qdrant.",
+          "name": "Memvid",
+          "url": "https://github.com/memvid/memvid",
+          "description": "Library that stores documents, embeddings, and metadata in one append-only .mv2 file. Python, Node, Rust, and a CLI are included. Each frame is immutable, so search can still read an earlier state. Put and search run from application code, with local or API embeddings. No MCP server or turn-selection rule is documented, and the older QR format is deprecated.",
+          "kind": "File memory library",
+          "source": "https://github.com/memvid/memvid#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "GBrain",
+          "url": "https://github.com/garrytan/gbrain",
+          "description": "Local memory of explicit facts with sources, including correction and withdrawal, shared with agents you already run. The memory-only path covers Grok Bot, Muse, Codex, and Claude Code, including MCP on a tailnet, starting from keyword search before optional embeddings or synthesis. Markdown export is not a full database backup. Local files and shared credentials sit outside remote grant filters.",
+          "kind": "Local memory service",
+          "source": "https://github.com/garrytan/gbrain#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "MemPalace",
+          "url": "https://github.com/MemPalace/mempalace",
+          "description": "Local tool that stores conversation text verbatim and searches it semantically, scoped by person and project. ChromaDB is the default index. Agents use the CLI or an MCP server. Nothing leaves the machine unless you opt in. Official sources are only this GitHub repository, the PyPI package mempalace, and mempalaceofficial.com. Other domains may be impostors.",
+          "kind": "Local memory tool",
+          "source": "https://github.com/MemPalace/mempalace#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "MCP Memory Service",
+          "url": "https://github.com/doobidoo/mcp-memory-service",
+          "description": "Self-hosted service with REST, MCP, a CLI, and a dashboard for memories and a knowledge graph of typed links such as causes and fixes. On-machine ONNX embeddings and an agent id header scope retrieval. Clients include LangGraph, CrewAI, AutoGen, Claude, and others. Consolidation can compress older memories. A person is not required to approve each store.",
+          "kind": "Memory server",
+          "source": "https://github.com/doobidoo/mcp-memory-service#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "projectmem",
+          "url": "https://github.com/riponcm/projectmem",
+          "description": "Local record of coding work stored as typed issues, attempts, fixes, and decisions in a .projectmem directory in the project. One MCP server, with no project root argument, serves every registered project for Claude Code, Cursor, Antigravity, and Codex. It makes no network calls unless you enable an update check. Git holds the diff, and no cloud copy is documented.",
           "kind": "MCP server",
-          "source": "https://github.com/qdrant/mcp-server-qdrant#readme",
-          "checked": "2026-09-29"
+          "source": "https://github.com/riponcm/projectmem#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "Engram",
+          "url": "https://github.com/Gentleman-Programming/engram",
+          "description": "Go binary, not the DeepSeek Engram paper, that keeps curated project memory in one local SQLite file. CLI, HTTP, MCP, and a TUI serve Claude Code, OpenCode, Codex, Cursor, and other MCP agents. Save decisions, fixes, and a session handoff on purpose, not every tool transcript. The local database stays authoritative if you use Git sync or the optional cloud.",
+          "kind": "Local memory binary",
+          "source": "https://github.com/Gentleman-Programming/engram#readme",
+          "checked": "2026-09-30"
         }
       ]
     },
@@ -108,18 +466,68 @@
         {
           "name": "claude-mem",
           "url": "https://github.com/thedotmack/claude-mem",
-          "description": "Captures agent-session activity and retrieves relevant context for later sessions.",
-          "kind": "Agent integration",
+          "description": "Plugin that records tool-use observations through hooks, summarizes them, and injects a slice later. A global npm install does not register hooks or the worker. It covers Claude Code, OpenCode, Codex, Gemini, Hermes, Copilot, OpenClaw, a Grok Bot log watcher, and MCP search. Capture is automatic unless a span is private. Pick a hosted observer or your own model key.",
+          "kind": "Agent plugin",
           "source": "https://github.com/thedotmack/claude-mem#readme",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
         },
         {
           "name": "Letta Code",
           "url": "https://github.com/letta-ai/letta-code",
-          "description": "Stateful agent harness with persistent memory and an app server for connected interfaces.",
+          "description": "Harness whose agents rewrite memory blocks, skills, and prompts. Letta Cloud stores memory, identity, and conversations by default, and a local backend is available. Permission modes set what is auto-approved. AgentFile export was removed; memory and transcript export remain. The older letta-ai/letta repository now points at this source and is not a second product.",
           "kind": "Agent harness",
           "source": "https://github.com/letta-ai/letta-code#readme",
-          "checked": "2026-09-29"
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "agentmemory",
+          "url": "https://github.com/rohitg00/agentmemory",
+          "description": "Local memory server with MCP, hooks, and REST for Claude Code, Cursor, Codex, Gemini CLI, Hermes, OpenClaw, and OpenCode. It captures agent activity, compresses it, and injects it later. State stays outside the repository unless you set a data directory. Keyless mode uses keyword search. Semantic search needs an embedding provider. Native Windows does not auto-install the pinned engine binary.",
+          "kind": "Coding-agent memory",
+          "source": "https://github.com/rohitg00/agentmemory#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "MemoraX Code",
+          "url": "https://github.com/memorax-ai/memorax-code",
+          "description": "Plugin that attaches repository knowledge, procedures, and preferences to Codex, Claude Code, Cursor, OpenCode, Trae, and other coding CLIs the installer detects. Setup keeps an API key locally, while search and writeback need network access. On Linux, guest credentials need secret-tool. A background subagent can build repo memory. Cursor may still request ordinary tool approvals. No offline store is documented.",
+          "kind": "Coding-agent plugin",
+          "source": "https://github.com/memorax-ai/memorax-code#readme",
+          "checked": "2026-09-30"
+        },
+        {
+          "name": "mem9",
+          "url": "https://github.com/mem9-ai/mem9",
+          "description": "Shared memory server whose plugins call store, search, get, update, and delete on a hosted API or a server you run. Clients include OpenClaw, Hermes, Claude Code, OpenCode, Codex, and Dify. Storage, search, and policy stay on the server. Self-hosting uses TiDB, Postgres, or db9 behind the API key. A dashboard is included. No single-file local mode is documented.",
+          "kind": "Memory server",
+          "source": "https://github.com/mem9-ai/mem9#readme",
+          "checked": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "title": "Retrieval adapters",
+      "projects": [
+        {
+          "name": "Qdrant MCP Server",
+          "url": "https://github.com/qdrant/mcp-server-qdrant",
+          "description": "Official MCP server for Qdrant vector search: store and find, not a knowledge graph or a profile. You operate Qdrant with a server URL or a local path, through qdrant-store and qdrant-find. Embeddings default to local FastEmbed. Read-only mode disables storing. There is no documented file workspace, write policy, or review step before a write.",
+          "kind": "MCP server",
+          "source": "https://github.com/qdrant/mcp-server-qdrant#readme",
+          "checked": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "title": "Unmaintained references",
+      "projects": [
+        {
+          "name": "Motorhead",
+          "url": "https://github.com/getmetal/motorhead",
+          "description": "Deprecated session memory server for LLM chats. Support is no longer maintained. Clients get, post, and delete a session window that is summarized as it grows. Optional long-term search uses Redisearch and defaults to off. The documented server expects a Redis URL. Those routes remain documented, but they are not a support commitment.",
+          "kind": "Memory server",
+          "source": "https://github.com/getmetal/motorhead#readme",
+          "checked": "2026-09-30"
         }
       ]
     }
@@ -128,20 +536,30 @@
     {
       "name": "Anandesh-Sharma/awesome-agentic-memory",
       "url": "https://github.com/Anandesh-Sharma/awesome-agentic-memory",
-      "description": "Memory frameworks, research, and benchmarks."
+      "description": "Short map of agent-memory frameworks and papers. Use it for leads; it is not a current product survey."
     },
     {
       "name": "TeleAI-UAGI/Awesome-Agent-Memory",
       "url": "https://github.com/TeleAI-UAGI/Awesome-Agent-Memory",
-      "description": "Systems and papers about long-term agent memory."
+      "description": "Large collection of memory systems, benchmarks, and papers. Most links are research rather than installable tools."
     },
     {
       "name": "Shichun-Liu/Agent-Memory-Paper-List",
       "url": "https://github.com/Shichun-Liu/Agent-Memory-Paper-List",
-      "description": "Research companion to an agent-memory survey."
+      "description": "Paper list for a survey of agent memory. Not a product directory."
+    },
+    {
+      "name": "topoteretes/awesome-ai-memory",
+      "url": "https://github.com/topoteretes/awesome-ai-memory",
+      "description": "Product-oriented memory list maintained by the Cognee project. Overlaps with Cognee are the maintainer's own work."
+    },
+    {
+      "name": "IAAR-Shanghai/Awesome-AI-Memory",
+      "url": "https://github.com/IAAR-Shanghai/Awesome-AI-Memory",
+      "description": "Research and systems map of LLM and agent memory, heavier on papers than on tools you can run."
     }
   ],
   "slug": "awesome-agent-memory",
-  "checked": "2026-09-29",
+  "checked": "2026-09-30",
   "introduction": "Start with what your agent keeps forgetting. Resuming a conversation, remembering project decisions, learning personal preferences, and sharing knowledge across a team are different jobs. Choose a memory tool for the information you need to preserve and the place you need to recall it."
 }
