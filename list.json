@@ -457,6 +457,14 @@
           "kind": "Local memory binary",
           "source": "https://github.com/Gentleman-Programming/engram#readme",
           "checked": "2026-09-30"
+        },
+        {
+          "name": "Selvedge",
+          "url": "https://github.com/masondelan/selvedge",
+          "description": "Local decision memory for coding agents, stored in SQLite and shared through MCP and CLI. People or agents record rationale, rejected approaches, and conditions for revisiting a choice. Explicit superseding records preserve revisions. Markdown export carries selected history into review, and a check mode detects digest drift. Core storage and retrieval make no LLM calls.",
+          "kind": "Local decision memory",
+          "source": "https://github.com/masondelan/selvedge/blob/v0.3.17/README.md",
+          "checked": "2026-10-17"
         }
       ]
     },

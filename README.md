@@ -8,7 +8,7 @@
 
 > Persistent memory, recall, knowledge graphs, and context tools for AI agents.
 
-36 projects · Upstream documentation checked 2026-09-30. Curated by [agentlist.io](https://www.agentlist.io).
+37 projects · Upstream documentation checked 2026-09-30–2026-10-17. Curated by [agentlist.io](https://www.agentlist.io).
 
 **Help your agent pick up where you left off.**
 
@@ -93,6 +93,7 @@ Start with your requirement. These examples highlight documented differences; th
 - [MCP Memory Service](https://github.com/doobidoo/mcp-memory-service) - Self-hosted service with REST, MCP, a CLI, and a dashboard for memories and a knowledge graph of typed links such as causes and fixes. On-machine ONNX embeddings and an agent id header scope retrieval. Clients include LangGraph, CrewAI, AutoGen, Claude, and others. Consolidation can compress older memories. A person is not required to approve each store. **Memory server.**
 - [projectmem](https://github.com/riponcm/projectmem) - Local record of coding work stored as typed issues, attempts, fixes, and decisions in a .projectmem directory in the project. One MCP server, with no project root argument, serves every registered project for Claude Code, Cursor, Antigravity, and Codex. It makes no network calls unless you enable an update check. Git holds the diff, and no cloud copy is documented. **MCP server.**
 - [Engram](https://github.com/Gentleman-Programming/engram) - Go binary, not the DeepSeek Engram paper, that keeps curated project memory in one local SQLite file. CLI, HTTP, MCP, and a TUI serve Claude Code, OpenCode, Codex, Cursor, and other MCP agents. Save decisions, fixes, and a session handoff on purpose, not every tool transcript. The local database stays authoritative if you use Git sync or the optional cloud. **Local memory binary.**
+- [Selvedge](https://github.com/masondelan/selvedge) - Local decision memory for coding agents, stored in SQLite and shared through MCP and CLI. People or agents record rationale, rejected approaches, and conditions for revisiting a choice. Explicit superseding records preserve revisions. Markdown export carries selected history into review, and a check mode detects digest drift. Core storage and retrieval make no LLM calls. **Local decision memory.**
 
 ## Agent-integrated memory
 
