@@ -502,6 +502,14 @@
           "kind": "Memory server",
           "source": "https://github.com/mem9-ai/mem9#readme",
           "checked": "2026-09-30"
+        },
+        {
+          "name": "agent-qa",
+          "url": "https://github.com/vostride/agent-qa",
+          "description": "QA agent from [vostride](https://vostride.com) for web, Android, and iOS that persists verified app facts, cautions, and procedures as inspectable memidex files. Reuses relevant knowledge in later tests, with evidence and curator gates before promotion; CI only proposes candidates. Memory focuses on application testing. Code is FSL-1.1-ALv2; model/API costs are separate.",
+          "kind": "QA agent",
+          "source": "https://vostride.com/docs/agent-qa/memory",
+          "checked": "2026-11-07"
         }
       ]
     },

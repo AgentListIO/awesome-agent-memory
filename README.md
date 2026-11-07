@@ -8,7 +8,7 @@
 
 > Persistent memory, recall, knowledge graphs, and context tools for AI agents.
 
-36 projects · Upstream documentation checked 2026-09-30. Curated by [agentlist.io](https://www.agentlist.io).
+37 projects · Upstream documentation checked 2026-09-30–2026-11-07. Curated by [agentlist.io](https://www.agentlist.io).
 
 **Help your agent pick up where you left off.**
 
@@ -101,6 +101,7 @@ Start with your requirement. These examples highlight documented differences; th
 - [agentmemory](https://github.com/rohitg00/agentmemory) - Local memory server with MCP, hooks, and REST for Claude Code, Cursor, Codex, Gemini CLI, Hermes, OpenClaw, and OpenCode. It captures agent activity, compresses it, and injects it later. State stays outside the repository unless you set a data directory. Keyless mode uses keyword search. Semantic search needs an embedding provider. Native Windows does not auto-install the pinned engine binary. **Coding-agent memory.**
 - [MemoraX Code](https://github.com/memorax-ai/memorax-code) - Plugin that attaches repository knowledge, procedures, and preferences to Codex, Claude Code, Cursor, OpenCode, Trae, and other coding CLIs the installer detects. Setup keeps an API key locally, while search and writeback need network access. On Linux, guest credentials need secret-tool. A background subagent can build repo memory. Cursor may still request ordinary tool approvals. No offline store is documented. **Coding-agent plugin.**
 - [mem9](https://github.com/mem9-ai/mem9) - Shared memory server whose plugins call store, search, get, update, and delete on a hosted API or a server you run. Clients include OpenClaw, Hermes, Claude Code, OpenCode, Codex, and Dify. Storage, search, and policy stay on the server. Self-hosting uses TiDB, Postgres, or db9 behind the API key. A dashboard is included. No single-file local mode is documented. **Memory server.**
+- [agent-qa](https://github.com/vostride/agent-qa) - QA agent from [vostride](https://vostride.com) for web, Android, and iOS that persists verified app facts, cautions, and procedures as inspectable memidex files. Reuses relevant knowledge in later tests, with evidence and curator gates before promotion; CI only proposes candidates. Memory focuses on application testing. Code is FSL-1.1-ALv2; model/API costs are separate. **QA agent.**
 
 ## Retrieval adapters
 
