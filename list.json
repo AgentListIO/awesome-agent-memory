@@ -388,6 +388,14 @@
           "kind": "Hosted memory service",
           "source": "https://www.getzep.com/",
           "checked": "2026-09-30"
+        },
+        {
+          "name": "ClickHouse Loom",
+          "url": "https://github.com/ClickHouse/loom",
+          "description": "Self-hosted MCP server and HTTP API for facts that agents share across sessions. Memories live in namespaces, with version history, contradictions flagged for review, and pinned facts protected from replacement. Agents can save and retrieve facts, while document search returns source passages with citations. You operate the server and connect your agent clients.",
+          "kind": "Memory server",
+          "source": "https://clickhouse.github.io/loom/use-cases/agent-memory/",
+          "checked": "2026-11-18"
         }
       ]
     },
