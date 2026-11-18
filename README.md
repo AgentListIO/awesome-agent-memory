@@ -8,7 +8,7 @@
 
 > Persistent memory, recall, knowledge graphs, and context tools for AI agents.
 
-36 projects · Upstream documentation checked 2026-09-30. Curated by [agentlist.io](https://www.agentlist.io).
+37 projects · Upstream documentation checked 2026-09-30–2026-11-18. Curated by [agentlist.io](https://www.agentlist.io).
 
 **Help your agent pick up where you left off.**
 
@@ -82,6 +82,7 @@ Start with your requirement. These examples highlight documented differences; th
 - [Memorix](https://github.com/AVIDS2/memorix) - Local memory for coding agents, kept in SQLite under the Git project and opened through MCP, hooks, CLI, and SDK. Setup covers Claude Code, Codex, Cursor, and other MCP agents. Hooks capture only where that agent exposes the events. Knowledge pages are review-gated, so a proposal does not replace a reviewed page. Optional sync still treats local SQLite as canonical. **Local memory service.**
 - [TeleMem](https://github.com/TeleAI-UAGI/telemem) - Python memory layer with a Mem0-compatible add and search API and a separate profile per character. The slogan is fully local Qwen and FAISS, but Memory() follows Mem0 provider defaults unless you pass the config file. The quickstart sets an OpenAI API key. Local Qwen and FAISS load only if you pass that file. An MCP server exposes the tools. **Python library.**
 - [Zep](https://www.getzep.com/) - Hosted context service that builds graphs from business data, documents, and conversations and returns a slice for a task. The site documents a managed cloud, a cloud option with customer-managed keys, and a VPC deployment. Graphiti is the open-source graph library and is listed separately. The getzep/zep GitHub repository is examples, not this service. **Hosted memory service.**
+- [ClickHouse Loom](https://github.com/ClickHouse/loom) - Self-hosted MCP server and HTTP API for facts that agents share across sessions. Memories live in namespaces, with version history, contradictions flagged for review, and pinned facts protected from replacement. Agents can save and retrieve facts, while document search returns source passages with citations. You operate the server and connect your agent clients. **Memory server.**
 
 ## Graph, file, and local recall
 
